@@ -24,7 +24,3 @@ module.exports = db.define('review', {
     }
 });
 
-//review has one productId
-Review.hasOne(Product);
-//review has one UserId
-Review.hasOne(User);

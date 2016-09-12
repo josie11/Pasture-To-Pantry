@@ -18,8 +18,5 @@ module.exports = db.define('order', {
   }
 });
 
-//order has many products:
-Order.hasMany(Products);
-//order has one User:
-Order.hasOne(User);
+
 

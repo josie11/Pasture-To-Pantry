@@ -31,10 +31,3 @@ module.exports = db.define('product', {
     //before save, if no imageUrl, have a default imageUrl to set
   }
 });
-
-//join table: a product can have multiple product types
-Product.belongsToMany(ProductType, {through: 'ProductCategory'});
-//join table: a product can have multiple reviews
-Product.hasMany(Review, {through: 'ProductReviews'});
-
-//relationship needed: product has one farmer/originator/seller
