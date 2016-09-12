@@ -2,13 +2,9 @@ var router = require('express').Router();
 var User = require('../../db/models/user.js');
 
 router.post('/', function(req, res, next){
-  User.findOne({where: req.body})
+  User.create(req.body)
   .then(function(user){
-    if (user) {
-      res.status(200).send(user);
-    } else {
-      res.status(401).send(null);
-    }
+    res.status(201).send(user);
   })
   .catch(next);
 });
