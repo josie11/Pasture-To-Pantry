@@ -2,6 +2,7 @@
 var path = require('path');
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
 
 module.exports = function (db) {
 
@@ -9,9 +10,14 @@ module.exports = function (db) {
     // function located at server/app/configure/index.js
     require('./configure')(app, db);
 
+    // use the body parser
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true}));
+
     // Routes that will be accessed via AJAX should be prepended with
     // /api so they are isolated from our GET /* wildcard.
     app.use('/api', require('./routes'));
+
 
 
     /*
